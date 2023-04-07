@@ -1,0 +1,36 @@
+package ejercicio2;
+
+	public class Codificador {
+
+	    // Método para codificar el texto con un desplazamiento dado
+	    public static String codificar(String texto, int desplazamiento) {
+	        String resultado = "";
+	        for (int i = 0; i < texto.length(); i++) {
+	            char letra = texto.charAt(i);
+	            if (letra >= 'a' && letra <= 'z') {
+	                letra = (char) ((letra - 'a' + desplazamiento) % 26 + 'a');
+	            } else if (letra >= 'A' && letra <= 'Z') {
+	                letra = (char) ((letra - 'A' + desplazamiento) % 26 + 'A');
+	            }
+	            resultado += letra;
+	        }
+	        return resultado;
+	    }
+
+	    // Método para decodificar el texto con un desplazamiento dado
+	    public static String decodificar(String texto, int desplazamiento) {
+	        return codificar(texto, 26 - desplazamiento);
+	    }
+
+	    // Este sería un ejemplo de uso
+	    public static void main(String[] args) {
+	        String textoOriginal = "hola que tal";
+	        int desplazamiento = 1;
+
+	        String textoCodificado = codificar(textoOriginal, desplazamiento);
+	        System.out.println(textoOriginal + " -> " + textoCodificado);
+
+	        String textoDecodificado = decodificar(textoCodificado, desplazamiento);
+	        System.out.println(textoCodificado + " -> " + textoDecodificado);
+	    }
+	}
