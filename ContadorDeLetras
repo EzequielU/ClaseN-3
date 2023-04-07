@@ -1,0 +1,21 @@
+package ejercicio1;
+
+
+
+public class ContadorDeLetras {
+
+    public static void main(String[] args) {
+        String texto = "Ejercicio Uno A";
+        char letra = 'e';
+        int cantidad = 0;
+        //Utilizo esto para asegurarme que la comparación de cada letra sea sensible a mayúsculas y minúsculas.
+        texto = texto.toLowerCase(); // Convertir todo el texto a minúsculas
+        letra = Character.toLowerCase(letra); // Convertir la letra a minúsculas
+        for (int i = 0; i < texto.length(); i++) {
+            if (texto.charAt(i) == letra) {
+                cantidad++;
+            }
+        }
+        System.out.println("La letra " + letra + " aparece " + cantidad + " veces en el texto.");
+    }
+}
