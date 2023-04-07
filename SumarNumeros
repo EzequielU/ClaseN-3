@@ -1,0 +1,26 @@
+package ejercicio1;
+
+public class SumaNumeros {
+
+
+	    public int sumarNumerosMayoresQueX(int[] numeros, int x) { //El método sumarNumerosMayoresQueX recibe un arreglo de números y un número x como parámetros. 
+	    	                                                       //Este método itera sobre el arreglo y suma todos los números mayores que x. Luego, retorna el resultado de la suma.
+	        int suma = 0;
+	        for (int i = 0; i < numeros.length; i++) {
+	            if (numeros[i] > x) {
+	                suma += numeros[i];
+	            }
+	        }
+	        return suma;
+	    }
+
+	    public static void main(String[] args) {
+	        SumaNumeros sumador = new SumaNumeros();//creo una instancia de la clase SumaNumeros, defino un arreglo de números y un número x, 
+	                                                //llamo al método sumarNumerosMayoresQueX con estos parámetros y muestro el resultado por consola.
+	        int[] numeros = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
+	        int x = 5;
+	        int resultado = sumador.sumarNumerosMayoresQueX(numeros, x);
+	        System.out.println(resultado);          //En este ejemplo, el resultado es 40, ya que la suma de los números mayores que 5 en el arreglo es 6+7+8+9+10
+	    }
+
+	}
