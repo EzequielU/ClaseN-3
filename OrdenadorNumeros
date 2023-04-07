@@ -1,0 +1,51 @@
+package ejercicio1;
+
+import java.util.Arrays;
+
+public class OrdenadorNumeros {
+	
+
+    public int[] ordenarNumeros(int a, int b, int c, String orden) {  //Utilizo un método ordenarNumeros que recibe tres números enteros (a, b, c) y 
+    	//un parámetro de String (orden) que indica si se deben ordenar los números en orden ascendente o descendente. 
+        
+        int[] numeros = {a, b, c};    //El método ordenarNumeros comienza creando un vector llamado numeros que contiene los tres números que se pasaron como argumentos.
+        
+        //Utilizo una estructura condicional (if-else) para determinar si los números deben ser ordenados en orden ascendente o descendente.
+        
+        if (orden.equals("ascendente")) {
+            //El orden se realiza mediante dos bucles for. El primer bucle (i) recorre el vector de números hasta el penúltimo elemento.
+        	//El segundo bucle (j) comienza en el índice siguiente al de i y recorre el resto del vector.
+            //Dentro del segundo bucle, se compara cada par de elementos adyacentes (numeros[i] y numeros[j]) y se intercambian si es necesario para asegurar que los elementos estén en el orden correcto.
+        	for (int i = 0; i < 2; i++) {
+                for (int j = i + 1; j < 3; j++) {
+                    if (numeros[i] > numeros[j]) {
+                        int temp = numeros[i];
+                        numeros[i] = numeros[j];
+                        numeros[j] = temp;
+                    }
+                }
+            }
+        } else if (orden.equals("descendente")) {
+            //
+            for (int i = 0; i < 2; i++) {
+                for (int j = i + 1; j < 3; j++) {
+                    if (numeros[i] < numeros[j]) {
+                        int temp = numeros[i];
+                        numeros[i] = numeros[j];
+                        numeros[j] = temp;
+                    }
+                }
+            }
+        } else {
+            throw new IllegalArgumentException("El orden debe ser 'ascendente' o 'descendente'.");
+        }
+        
+        return numeros;
+    }
+
+public static void main(String[] args) {
+    OrdenadorNumeros ordenador = new OrdenadorNumeros();
+    int[] numerosOrdenados = ordenador.ordenarNumeros(5, 2, 8, "ascendente"); //llamo al método ordenanrNumeros
+    System.out.println(Arrays.toString(numerosOrdenados)); //imprime el vector resultante utilizando el método Arrays.toString. La salida esperada es [2, 5, 8].
+}
+}
